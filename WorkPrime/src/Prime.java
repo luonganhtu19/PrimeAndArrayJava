@@ -273,9 +273,14 @@ public class Prime {
 
         System.out.println("Position you add element (it less than " + arrNumber.length + " and greater than 1");
         mess = " The value must satisfy the condition";
-        int indexElement = checkInputNumber(mess);
-
-        arrNumber[indexElement-1] = valueElement;
+        int indexElement = checkInputNumber(mess)-1;
+        int[] arrNumberAdd= new int[arrNumber.length+1];
+        for (int i = arrNumberAdd.length-1; i >=0 ; i--) {
+            if (i>indexElement) arrNumberAdd[i]=arrNumber[i-1];
+            else if (i==indexElement)arrNumberAdd[i] = valueElement;
+            else arrNumberAdd[i]=arrNumber[i];
+        }
+        arrNumber=arrNumberAdd;
         sortElement(arrNumber);
     }
 
