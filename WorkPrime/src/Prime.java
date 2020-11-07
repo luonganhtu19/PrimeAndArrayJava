@@ -118,7 +118,7 @@ public class Prime {
                 case 0:
                     return;
                 case 1:
-                    addArray(size, arrNumber);
+                    addArray( arrNumber);
                     break;
                 case 2:
                     displayArray(arrNumber);
@@ -136,7 +136,9 @@ public class Prime {
                     sortElement(arrNumber);
                     break;
                 case 7:
-                    addSortElement(arrNumber);
+                    arrNumber=addSortElement(arrNumber);
+                    size=size+1;
+
                 default:
                     System.out.println("Please choice menu");
             }
@@ -144,8 +146,9 @@ public class Prime {
 
     }
 
-    public static void addArray(int size, int[] arrNumber) {
+    public static void addArray( int[] arrNumber) {
         String mess = " value element is number";
+        int size=arrNumber.length;
         for (int i = 0; i < size; i++) {
             System.out.print("The element in place " + (i + 1) + " of array ");
             arrNumber[i] = checkInputNumber(mess);
@@ -265,7 +268,7 @@ public class Prime {
         displayArray(arrNumber);
     }
 
-    public static void addSortElement(int[] arrNumber) {
+    public static int[] addSortElement(int[] arrNumber) {
         String mess = "";
         System.out.println("Value element adding array");
         mess = " Input value element";
@@ -280,8 +283,8 @@ public class Prime {
             else if (i==indexElement)arrNumberAdd[i] = valueElement;
             else arrNumberAdd[i]=arrNumber[i];
         }
-        arrNumber=arrNumberAdd;
-        sortElement(arrNumber);
+        sortElement(arrNumberAdd);
+        return arrNumberAdd;
     }
 
 }
