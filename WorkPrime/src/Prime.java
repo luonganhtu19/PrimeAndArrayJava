@@ -275,7 +275,7 @@ public class Prime {
         mess = " The value must satisfy the condition";
         int indexElement = checkInputNumber(mess);
 
-        arrNumber[indexElement] = valueElement;
+        arrNumber[indexElement-1] = valueElement;
         sortElement(arrNumber);
     }
 
