@@ -18,6 +18,7 @@ public class Prime {
             switch (choice) {
                 case 1:
                     inputOddNumber(mess);
+                    break;
                 case 2:
                     mess = "input number";
                     System.out.println("Please input Number");
@@ -25,6 +26,7 @@ public class Prime {
                     boolean check = checkPrimeNumber(number);
                     if (check) System.out.println("number is prime");
                     else System.out.println("number no prime");
+                    break;
                 case 3:
                     System.out.println("Please amount price want display");
                     mess = "input amount price";
@@ -38,8 +40,10 @@ public class Prime {
                         }
                         priceNumber++;
                     }
+                    break;
                 case 4:
                     workArray();
+                    break;
                 case 0:
                     return;
                 default:
@@ -138,7 +142,7 @@ public class Prime {
                 case 7:
                     arrNumber=addSortElement(arrNumber);
                     size=size+1;
-
+                    break;
                 default:
                     System.out.println("Please choice menu");
             }
@@ -276,7 +280,15 @@ public class Prime {
 
         System.out.println("Position you add element (it less than " + arrNumber.length + " and greater than 1");
         mess = " The value must satisfy the condition";
-        int indexElement = checkInputNumber(mess)-1;
+        int indexElement=0;
+        do {
+                indexElement = checkInputNumber(mess)-1;
+            if (indexElement>0||indexElement<arrNumber.length+1){
+                break;
+            };
+        }while (true);
+
+
         int[] arrNumberAdd= new int[arrNumber.length+1];
         for (int i = arrNumberAdd.length-1; i >=0 ; i--) {
             if (i>indexElement) arrNumberAdd[i]=arrNumber[i-1];
